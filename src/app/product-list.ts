@@ -23,8 +23,8 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.products = [
-      new Product(1, 'iPhone', 1000 'This is iPhone!'),
-      new Product(2, 'iPad', 1200 'This is iPad!'),
+      new Product(1, 'iPhone', 1000, 'This is iPhone!'),
+      new Product(2, 'iPad', 1200, 'This is iPad!'),
       new Product(3, 'Apple TV', 800, 'This is Apple TV!')
     ];
   }

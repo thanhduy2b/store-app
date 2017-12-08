@@ -5,10 +5,15 @@ import { Product } from './models/Product';
   selector: 'product-detail',
   template: `
     <div *ngIf="product">
-      <div>Name: {{product.name}}</div>
-      <div>Price: {{product.price}}</div>
-      <div>Description: {{product.description}}</div>
-      <button (click)="requestDelete()">delete</button>
+      <form>
+       <fieldset>
+        <legend>Detail:</legend>
+        Name: <input [(ngModel)]="product.name" [ngModelOptions]="{standalone: true}"><br>
+        Price: <input [(ngModel)]="product.price" [ngModelOptions]="{standalone: true}"><br>
+        Description: <input [(ngModel)]="product.description" [ngModelOptions]="{standalone: true}">
+       </fieldset>
+       <button (click)="requestDelete()">delete</button>
+      </form>
     </div>`
 })
 export class ProductDetailComponent {
