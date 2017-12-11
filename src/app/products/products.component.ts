@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from './models/Product';
+import { Product } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
-  selector: 'product-list',
+  selector: 'products',
   template: `
     <div>
       <ul>
@@ -17,16 +18,15 @@ import { Product } from './models/Product';
     </product-detail>`,
   styles: ['div { border: 1px solid green; } li { cursor: pointer; }']
 })
-export class ProductListComponent implements OnInit {
+export class ProductsComponent implements OnInit {
   products: Product[];
   selectedProduct: Product;
 
+  constructor(private productService: ProductService) { }
+
   ngOnInit(): void {
-    this.products = [
-      new Product(1, 'iPhone', 1000, 'This is iPhone!'),
-      new Product(2, 'iPad', 1200, 'This is iPad!'),
-      new Product(3, 'Apple TV', 800, 'This is Apple TV!')
-    ];
+    this.productService.getProducts()
+      .subscribe(products => this.products = products);
   }
 
   delete(product: Product) {

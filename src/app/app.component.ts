@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductListComponent } from './product-list'
+import { ProductsComponent } from './products/products.component';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { ProductListComponent } from './product-list'
       <h1>
         Welcome to {{title}}!
       </h1>
-      <product-list></product-list>
+      <products></products>
     </div>
   `,
   styles: []
